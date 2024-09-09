@@ -1,0 +1,22 @@
+<div class="container">
+    @let productsList = (productsResult$ | async);
+    @if(!productsList?.length){
+        <p>Loading...</p>
+    }@else {
+         <div class="home-container">
+    <ul class= "product-card">
+  @for(product of productsList;
+    track product.id; let i = $index){
+        <li class="product-item">
+          <h2 class="product-title">{{ product.name }}</h2>
+          <img src={{product.imagen}} alt={{product.name}} class= "product-image" />
+          <p class="product-price">$ {{product.price}} </p>
+          <button (click)="onProductClicked(product.id)">Ver Detalles</button>
+        </li>
+      }
+      
+    </ul>
+  </div>
+    }
+
+</div>

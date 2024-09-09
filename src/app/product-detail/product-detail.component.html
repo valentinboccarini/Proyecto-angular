@@ -1,0 +1,17 @@
+@let products = (products$ | async); @if(!products){
+<p>Loading...</p>
+} @else {
+  <div class="product-detail-container">
+
+      <h2 class="product-detail-title">{{ products.name }}</h2>
+      <img
+      src="{{ products.imagen }}"
+      alt="{{ products.name }}"
+      class="product-detail-image"
+      />
+      <p class="product-detail-description">"{{products.detail}}"</p>
+      <p class="product-detail-price">$ {{ products.price }}</p>
+      <button class="product-detail-button">Comprar</button>
+</div>  
+
+}
